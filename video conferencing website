@@ -1,0 +1,47 @@
+----------HTML_CODE----------
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Conferencing</title>
+  <style>
+    video {
+      width: 100%;
+      max-width: 800px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Video Conferencing</h1>
+  <video id="localVideo" autoplay></video>
+  <video id="remoteVideo" autoplay></video>
+  <script src="script.js"></script>
+</body>
+</html>
+
+----------------JAVASCRIPT_CODE------------
+// script.js
+const localVideo = document.getElementById("localVideo");
+const remoteVideo = document.getElementById("remoteVideo");
+
+async function startVideo() {
+  const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+  localVideo.srcObject = stream;
+
+  // Connect to signaling server (not shown in this simplified example)
+  // Provide your signaling logic here to establish a connection with other participants
+}
+
+startVideo();
+  // server.js
+const express = require("express");
+const http = require("http");
+const app = express();
+const server = http.createServer(app);
+
+app.use(express.static("public"));
+
+server.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
