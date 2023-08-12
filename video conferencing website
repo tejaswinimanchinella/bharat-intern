@@ -20,6 +20,18 @@
 </body>
 </html>
 
+--------------CSS_CODE-----------
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .project {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9;
+  }
+
 ----------------JAVASCRIPT_CODE------------
 // script.js
 const localVideo = document.getElementById("localVideo");
