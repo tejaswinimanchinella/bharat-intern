@@ -1,0 +1,85 @@
+-----------HTML_CODE-------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Creation Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Create Your Blog</h1>
+    </header>
+    <main>
+        <div id="editor">
+            <div id="text-editor" class="editor-section" contenteditable="true">
+                <p>Write your blog content here...</p>
+            </div>
+            <input type="file" id="image-input" accept="image/*" class="editor-section">
+            <input type="file" id="video-input" accept="video/*" class="editor-section">
+        </div>
+    </main>
+    <footer>
+        <button id="publish-button">Publish</button>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+  --------------CSS_CODE--------------
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    padding: 2rem;
+}
+
+.editor-section {
+    margin-bottom: 1rem;
+}
+
+#publish-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+---------------JAVASCRIPT_CODE---------------
+  document.addEventListener('DOMContentLoaded', function () {
+    const textEditor = document.getElementById('text-editor');
+    const imageInput = document.getElementById('image-input');
+    const videoInput = document.getElementById('video-input');
+    const publishButton = document.getElementById('publish-button');
+
+    publishButton.addEventListener('click', function () {
+        const blogContent = textEditor.innerHTML;
+        // You can process and send the content to a server for publishing here
+    });
+
+    imageInput.addEventListener('change', function (event) {
+        const selectedImage = event.target.files[0];
+        // You can display the selected image in the editor or process it further
+    });
+
+    videoInput.addEventListener('change', function (event) {
+        const selectedVideo = event.target.files[0];
+        // You can display the selected video in the editor or process it further
+    });
+});
